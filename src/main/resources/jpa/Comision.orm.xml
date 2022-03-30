@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm 
+                                     http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+                 version="1.0">
+
+    <entity name="comision" class="mdef.entidades.Comision" access="FIELD">
+        <table name="COMISIONES"/>
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY"/>
+            </id>
+            <basic name="activa" optional="false">
+            	<column name="ACTIVA"/> 
+            </basic>
+            <basic name="nombre" optional="false">
+            	<column name="NOMBRE"/> 
+            </basic>
+            <basic name="fechaActivacion" optional="false">
+            	<column name="FECHA_ACTIVACION"/> 
+            </basic>
+            <basic name="fechaDesactivacion" optional="false">
+            	<column name="FECHA_DESACTIVACION"/> 
+            </basic>
+            <many-to-one name="militar" optional="false"><!-- fetch="LAZY">-->
+                <join-column name="ID_MILITAR" referencedColumnName="ID_MILITAR"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>
