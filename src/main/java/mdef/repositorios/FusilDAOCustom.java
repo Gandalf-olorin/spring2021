@@ -6,5 +6,6 @@ import mdef.entidades.Fusil;
 
 public interface FusilDAOCustom {
 
-	List<Fusil> getAlcanceMinimo(Double alcance);
+	List<Fusil> getFusilesPorAlcanceMinimo(Double alcance);
+
 }

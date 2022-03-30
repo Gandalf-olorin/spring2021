@@ -59,6 +59,7 @@ public class Unidad {
 		this.operativo = operativo;
 	}
 
+	// Establece la relacion en los dos sentidos
 	public void addMilitar(Militar militar) {
 		getMilitaresDestinados().add(militar);
 		militar.setUnidad(this);

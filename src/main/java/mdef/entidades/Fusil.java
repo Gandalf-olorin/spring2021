@@ -33,4 +33,5 @@ public class Fusil extends Armamento {
 	public void setCalibre(Double calibre) {
 		this.calibre = calibre;
 	}
+
 }

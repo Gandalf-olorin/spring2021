@@ -1,7 +1,6 @@
 package mdef.entidades;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
@@ -32,15 +31,16 @@ public class Militar {
 	@Column(name = "FECHA_INGRESO_FAS")
 	private LocalDateTime fechaIngresoFas;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn
+	@JoinColumn(name = "UNIDAD")
 	private Unidad unidad;
-
 	@OneToMany(cascade = CascadeType.ALL, targetEntity = Comision.class, mappedBy = "militar")
-	private Collection<Comision> comisiones = new ArrayList<>();
+	private Collection<Comision> comisiones;
 
 	public Militar() {
 
 	}
+	
+	
 
 	public long getId() {
 		return id;
@@ -98,14 +98,15 @@ public class Militar {
 		this.comisiones = comisiones;
 	}
 
-	public void addComision(Comision comision) {
-		getComisiones().add(comision);
-		comision.setMilitar(this);
-	}
-
 	public static String generarCodigoActualizacion() {
 		long numero = (long) (Math.random() * 10000) + 1000;
 		return Long.toString(numero);
+	}
+
+	// Establece la relacion en los dos sentidos
+	public void addComision(Comision comision) {
+		getComisiones().add(comision);
+		comision.setMilitar(this);
 	}
 
 }

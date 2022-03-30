@@ -13,6 +13,6 @@ import mdef.entidades.Comision;
 public interface ComisionDAO extends JpaRepository<Comision, Long>, ComisionDAOCustom {
 
 	@RestResource(path = "por-nombre")
-	List<Comision> findByNombre(@Param("nombre") String txt);
+	List<Comision> findByNombre(@Param("nombre") String nombre);
 
 }

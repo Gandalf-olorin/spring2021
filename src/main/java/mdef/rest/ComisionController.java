@@ -1,7 +1,7 @@
 package mdef.rest;
 
 import java.util.List;
-import org.springframework.context.annotation.Configuration;
+
 import org.springframework.data.rest.webmvc.PersistentEntityResource;
 import org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
@@ -14,12 +14,13 @@ import mdef.entidades.Comision;
 import mdef.repositorios.ComisionDAO;
 
 @RepositoryRestController
-@RequestMapping(path = "/comisiones")
-@Configuration
+@RequestMapping(path = "/comisiones/search")
 public class ComisionController {
+
 	private ComisionDAO comisionDAO;
 
 	public ComisionController(ComisionDAO comisionDAO) {
+		super();
 		this.comisionDAO = comisionDAO;
 	}
 
